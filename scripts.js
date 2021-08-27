@@ -1,20 +1,44 @@
-function Pizza(size) {
+function Pizza(size, toppings) {
   this.size = size;
+  this.toppings = toppings;
 }
+
 
 Pizza.prototype.getSizePrice = function () {
-  let price = 0;
+  sizePrice = 0
   if (this.size === "S") {
-  price += 5;
-  return price;
+  sizePrice = 5;
   } else if (this.size === "M") {
-  price += 10;
-  return price;
+    sizePrice = 10;
   } else if (this.size === "L") {
-  price += 15;
-  return price;
-  } else {return price;}
+    sizePrice = 15;
+  } else {}
+  return sizePrice;
 }
 
-const pizza = new Pizza("X");
-pizza.getSizePrice();
+Pizza.prototype.getToppingsPrice = function () {
+  toppingsPrice = 0
+  if (this.toppings.includes("cheese")) {
+    toppingsPrice += 1.5;
+  }
+  if (this.toppings.includes("pepperoni")) {
+    toppingsPrice += 3;
+  }
+  if (this.toppings.includes("ravioli")) {
+    toppingsPrice += 5;
+  }
+  if (this.toppings.includes("mushrooms")) {
+    toppingsPrice += 1;
+  }
+  return toppingsPrice;
+
+}
+
+var toppings = ["mushrooms", "ravioli"];
+const pizza = new Pizza("M", toppings);
+var totalPrice = 0
+
+totalPrice += pizza.getSizePrice();
+totalPrice += pizza.getToppingsPrice();
+totalPrice;
+

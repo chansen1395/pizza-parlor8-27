@@ -41,18 +41,41 @@ _{Numbers with 3 take priority over numbers with 3 and a 2 or 1, and numbers wit
 
 ## Specs
 
-### Describe: showPrice()
+### Describe: getSizePrice()
 
-### Test: "If the pizza is a Small, the price is 5."
+### Test: "If the pizza is a Small, the base price is 5."
 - Code: Pizza("S");
 - Expected Output: 5
 
+### Test: "If the pizza is a Medium, the base price is 10."
+- Code: Pizza("M");
+- Expected Output: 10
 
-### Describe: lilBeepy()
+### Test: "If the pizza is a Large, the base price is 15."
+- Code: Pizza("L");
+- Expected Output: 15
 
-### Test: "It not produce any output if the input is NaN."
-- Code: lilBeepy("abc#$%");
-- Expected Output: "Not a number, silly. Enter a number."
+
+### Describe: getToppingsPrice()
+
+### Test: "If no topping is selected, it returns no added price."
+- Code:
+    * toppings = [];
+    * Pizza("S", toppings);
+- Expected Output: 5
+
+### Test: "If one topping is selected, it returns the added price of the topping."
+- Code:
+    * toppings = [];
+    * Pizza("S", toppings);
+- Expected Output: 5
+
+### Test: "If more than one topping is selected, it returns the added price of the toppings."
+- Code:
+    * toppings = ["mushrooms", "ravioli"];
+    * Pizza("S", toppings);
+- Expected Output: 11
+
 
 
 ## Known Bugs
