@@ -34,11 +34,28 @@ Pizza.prototype.getToppingsPrice = function () {
 
 }
 
-var toppings = ["mushrooms", "ravioli"];
-const pizza = new Pizza("M", toppings);
+// const pizza = new Pizza("M", toppings);
 var totalPrice = 0
 
-totalPrice += pizza.getSizePrice();
-totalPrice += pizza.getToppingsPrice();
-totalPrice;
+// totalPrice += pizza.getSizePrice();
+// totalPrice += pizza.getToppingsPrice();
+// totalPrice;
 
+function displayPrice(newPizza) {
+  $(".size-price").html(newPizza.getSizePrice());
+  $(".toppings-price").html(newPizza.getToppingsPrice());
+}
+
+$(document).ready(function () {
+  $("form#new-pizza").submit(function (event) {
+    event.preventDefault();
+    var toppings = [];
+    var inputtedSize = $("select#size").val();
+    $("input:checkbox[name=checkbox]:checked").each(function() {
+      toppings.push($(this).val())
+    });
+    console.log("Toppings selected: " + toppings);
+    var newPizza = new Pizza(inputtedSize, toppings);
+    displayPrice(newPizza);
+  });
+});
