@@ -20,7 +20,7 @@ _{This webpage has been created to demonstrate constructors and prototypes. The 
 - _The user can choose any additional toppings on the pizza._
 - _The program creates a pizza object and calls prototype methods to display the cost._
 
-#### Additional Objectives
+<!-- #### Additional Objectives -->
 
 
 ## Setup/Installation Requirements
@@ -69,8 +69,16 @@ _{This webpage has been created to demonstrate constructors and prototypes. The 
 - Code:
     * toppings = ["mushrooms", "ravioli"];
     * Pizza("S", toppings);
-- Expected Output: 11
+- Expected Output: 12
 
+### Describe displayPrice(newPizza)
+
+### Test: "Calculates price and shows it to the user."
+- Code: 
+    * toppings = ["mushrooms", "ravioli"];
+    * newPizza("S", toppings);
+    * displayPrice(newPizza);
+- Expected Output: 12
 
 
 ## Known Bugs

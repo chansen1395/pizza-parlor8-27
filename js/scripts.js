@@ -1,9 +1,13 @@
+// ******************************* //
+// Business Logic for Pizza Parlor //
+// ******************************* //
+
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = toppings;
 }
 
-
+// Determine price addition based on size //
 Pizza.prototype.getSizePrice = function () {
   sizePrice = 0
   if (this.size === "S") {
@@ -16,6 +20,7 @@ Pizza.prototype.getSizePrice = function () {
   return sizePrice;
 }
 
+// Determine price addition based on topping selections //
 Pizza.prototype.getToppingsPrice = function () {
   toppingsPrice = 0
   if (this.toppings.includes("cheese")) {
@@ -34,13 +39,12 @@ Pizza.prototype.getToppingsPrice = function () {
 
 }
 
-// const pizza = new Pizza("M", toppings);
-var totalPrice = 0
 
-// totalPrice += pizza.getSizePrice();
-// totalPrice += pizza.getToppingsPrice();
-// totalPrice;
+// ************************* //
+// UI Logic for Pizza Parlor //
+// ************************* //
 
+// Display the price to the user //
 function displayPrice(newPizza) {
   $("#show-price").show();
   totalPrice = newPizza.getSizePrice() + newPizza.getToppingsPrice();
