@@ -42,8 +42,10 @@ var totalPrice = 0
 // totalPrice;
 
 function displayPrice(newPizza) {
+  totalPrice = newPizza.getSizePrice() + newPizza.getToppingsPrice();
   $(".size-price").html(newPizza.getSizePrice());
   $(".toppings-price").html(newPizza.getToppingsPrice());
+  $(".total-price").html(totalPrice);
 }
 
 $(document).ready(function () {
