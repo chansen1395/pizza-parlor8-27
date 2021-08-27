@@ -25,7 +25,7 @@ Pizza.prototype.getToppingsPrice = function () {
     toppingsPrice += 3;
   }
   if (this.toppings.includes("ravioli")) {
-    toppingsPrice += 5;
+    toppingsPrice += 6;
   }
   if (this.toppings.includes("mushrooms")) {
     toppingsPrice += 1;
@@ -42,13 +42,19 @@ var totalPrice = 0
 // totalPrice;
 
 function displayPrice(newPizza) {
+  $("#show-price").show();
   totalPrice = newPizza.getSizePrice() + newPizza.getToppingsPrice();
-  $(".size-price").html(newPizza.getSizePrice());
-  $(".toppings-price").html(newPizza.getToppingsPrice());
-  $(".total-price").html(totalPrice);
+  $(".size-price").html("$" + newPizza.getSizePrice().toFixed(2));
+  $(".toppings-price").html("$" + newPizza.getToppingsPrice().toFixed(2));
+  $(".total-price").html("$" + totalPrice.toFixed(2));
 }
 
 $(document).ready(function () {
+  $("#show-price").hide();
+  $("#ravioli-ravioli").click(function(event) {
+    event.preventDefault();
+    window.open("https://www.youtube.com/watch?v=NWoyTD27kFs");
+  });
   $("form#new-pizza").submit(function (event) {
     event.preventDefault();
     var toppings = [];
@@ -59,5 +65,8 @@ $(document).ready(function () {
     console.log("Toppings selected: " + toppings);
     var newPizza = new Pizza(inputtedSize, toppings);
     displayPrice(newPizza);
+    $(".btn-warning").click(function () {
+      location.reload();
+    });
   });
 });
